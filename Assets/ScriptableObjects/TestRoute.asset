@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc7e65cc8394c71a1c52a732ab53ddc, type: 3}
+  m_Name: TestRoute
+  m_EditorClassIdentifier: 
+  clip: {fileID: 32900000, guid: 875d3325b8e94464e90330cde5c3b15a, type: 3}
+  possibilities:
+  - description: Talk to British People
+    route: {fileID: 11400000, guid: 610683360ff3819488586e73e1454c78, type: 2}
+  - description: Pipe Bomb
+    route: {fileID: 11400000, guid: a8b5dd0de3d2276478787c1889d50c96, type: 2}
+  videoPath: ../Ressources/Videos/
