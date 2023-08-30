@@ -82,4 +82,11 @@ public class ChoiceMenu : Manager
         {
                 menuObject.gameObject.SetActive(true);       
         }
+
+        public void ChoseReplay()
+        {
+                DeleteMenuElements();
+                manager.Events.OnVideoSelected?.Invoke(choiceManager.CurrentRoute);
+                menuObject.gameObject.SetActive(false);
+        }
 }

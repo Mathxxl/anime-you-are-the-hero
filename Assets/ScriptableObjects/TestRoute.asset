@@ -18,4 +18,6 @@ MonoBehaviour:
     route: {fileID: 11400000, guid: 610683360ff3819488586e73e1454c78, type: 2}
   - description: Pipe Bomb
     route: {fileID: 11400000, guid: a8b5dd0de3d2276478787c1889d50c96, type: 2}
-  videoPath: ../Ressources/Videos/
+  - description: Pommes
+    route: {fileID: 11400000, guid: 217be083c295c47408a6d84ea61d2aa0, type: 2}
+  videoPath: Ressources/Videos/

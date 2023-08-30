@@ -4,6 +4,7 @@ public class ChoiceManager : Manager
 {
     [SerializeField] private RouteVideo startRoute;
     private RouteVideo _currentRoute;
+    public RouteVideo CurrentRoute => _currentRoute;
 
     private void Start()
     {
@@ -30,11 +31,11 @@ public class ChoiceManager : Manager
     private void ChoiceMade(RouteChoice choice)
     {
         _currentRoute = choice.route;
-        manager.Events.OnVideoSelected?.Invoke(choice.route.clip);
+        manager.Events.OnVideoSelected?.Invoke(choice.route);
     }
 
     private void FirstRoute()
     {
-        manager.Events.OnVideoSelected?.Invoke(startRoute.clip);
+        manager.Events.OnVideoSelected?.Invoke(startRoute);
     }
 }

@@ -34,7 +34,14 @@ public class VideoManager : Manager
 
         private void ChangeVideo(VideoClip clip)
         {
+                videoPlayer.source = VideoSource.VideoClip;
                 videoPlayer.clip = clip;
+        }
+
+        private void ChangeVideoUrl(string url)
+        {
+                videoPlayer.source = VideoSource.Url;
+                videoPlayer.url = url;
         }
 
         private void StopVideo()
@@ -44,12 +51,20 @@ public class VideoManager : Manager
 
         private IEnumerator CheckFrameForVideoEnd()
         {
-                Debug.Log("CheckFrameForVideoEnd Routine start");
-                
+                Debug.Log($"CheckFrameForVideoEnd Routine start");
+
                 if (videoPlayer == null) yield break;
+
+                while (videoPlayer.frameCount == 0)
+                {
+                        yield return null;
+                }
+                
+                Debug.Log($"Frames to go : {videoPlayer.frameCount}");
+                
                 while (videoPlayer.frame < (long)videoPlayer.frameCount - 2)
                 {
-                        //Debug.Log($"videoPlayer frame = {videoPlayer.frame} ; videoPlayer.frameCount = {videoPlayer.frameCount}");
+                        //Debug.Log($"Playing {videoPlayer.frame} / {videoPlayer.frameCount}");
                         yield return null;
                 }
                 videoPlayer.Pause();
@@ -57,9 +72,18 @@ public class VideoManager : Manager
                 manager.Events.OnVideoEnd?.Invoke();
         }
 
-        private void VideoSelected(VideoClip newClip)
+        private void VideoSelected(RouteVideo route)
         {
-                ChangeVideo(newClip);
+                var clip = route.clip;
+                if (clip != null)
+                {
+                        ChangeVideo(clip);
+                }
+                else
+                {
+                        ChangeVideoUrl(route.videoPath);
+                }
+                
                 PlayVideo();
         }
 }

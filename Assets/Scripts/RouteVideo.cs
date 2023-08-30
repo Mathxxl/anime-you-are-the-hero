@@ -8,6 +8,6 @@ public class RouteVideo : ScriptableObject
         public VideoClip clip;
         public List<RouteChoice> possibilities;
         [Header("Optional")]
-        public string videoPath = "../Ressources/Videos/";
+        public string videoPath = "../Ressources/Video/";
 
 }
